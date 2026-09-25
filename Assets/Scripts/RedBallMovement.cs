@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class RedBallMovement : MonoBehaviour
 {
     [SerializeField] private float _runSpeed;
     [SerializeField] private float _jumpSpeed;
-    [SerializeField] private Animator _animator;
+    //[SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _rigid;
     [SerializeField] private GroundChecker _groundChecker;
 
@@ -31,11 +31,12 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
 
-        PlayRunAnimation(direction);
+        //PlayRunAnimation(direction);
     }
 
     private void Jump()
     {
+        print(_groundChecker.IsOnGround);
         if (_groundChecker.IsOnGround)
         {
             _rigid.linearVelocityY = _jumpSpeed;
@@ -62,16 +63,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void PlayRunAnimation(Vector2 direction)
-    {
-        if (direction.x != 0)
-        {
-            _animator.Play("PlayerRun");
-        }
-        else
-        {
-            _animator.Play("PlayerIdle");
-        }
-    }
+    //private void PlayRunAnimation(Vector2 direction)
+    //{
+    //    if (direction.x != 0)
+    //    {
+    //        _animator.Play("PlayerRun");
+    //    }
+    //    else
+    //    {
+    //        _animator.Play("PlayerIdle");
+    //    }
+    //}
 }
 
