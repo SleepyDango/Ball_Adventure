@@ -5,7 +5,6 @@ public class RedBallMovement : MonoBehaviour
 {
     [SerializeField] private float _runSpeed;
     [SerializeField] private float _jumpSpeed;
-    //[SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _rigid;
     [SerializeField] private GroundChecker _groundChecker;
 
@@ -27,11 +26,9 @@ public class RedBallMovement : MonoBehaviour
         UpdateMovement(direction);
 
         if (_jumpAction.triggered)
-        {
-            Jump();
-        }
-
-        //PlayRunAnimation(direction);
+            {
+                Jump();
+            }   
     }
 
     private void Jump()
@@ -62,17 +59,5 @@ public class RedBallMovement : MonoBehaviour
             _rigid.linearVelocityX = direction.x * _runSpeed;
         }
     }
-
-    //private void PlayRunAnimation(Vector2 direction)
-    //{
-    //    if (direction.x != 0)
-    //    {
-    //        _animator.Play("PlayerRun");
-    //    }
-    //    else
-    //    {
-    //        _animator.Play("PlayerIdle");
-    //    }
-    //}
 }
 
